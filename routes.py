@@ -79,6 +79,8 @@ def make_prediction():
 		
 		# Predict from the model
 
+		model = joblib.load('rm.pkl')
+
 		prediction = model.predict(np.array(entered_li).reshape(1, -1))
 
 
@@ -96,7 +98,7 @@ if __name__ == '__main__':
 	
 	#Load ML model
 
-	model = joblib.load('rm.pkl')
+	# model = joblib.load('rm.pkl')
 
 
 
