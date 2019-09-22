@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="content-section">
+    			<form method="POST" action="/predict">
+    				 <div class="form-group">
+    				 		<div class="row">
+
+
+<!--  COLUMN ONE  -->
+    				 			
+    				 	<div class="col-lg-6">
+
+    				 		<h1>Rossmann Store Sales Predictor</h1>	
+
+    				 		<p> Rossmann operates over 3,000 drug stores in 7 European countries. Currently, Rossmann store managers are tasked with predicting their daily sales for up to six weeks in advance. Store sales are influenced by many factors, including promotions, competition, school and state holidays, seasonality, and locality. With thousands of individual managers predicting sales based on their unique circumstances, the accuracy of results can be quite varied.</p>
+
+    				 		<h1>
+							  {% if label %} {{ label }} {% endif %}
+							</h1>
+
+						  <br>
+						  <button class="btn btn-lg btn-primary" type="submit">
+						  	Predict
+						  </button> 
+
+						</div>
+
+
+<!--  COLUMN TWO  -->
+
+<!--  START OF PART 2.2 -->
+
+						<div class="col-lg-3 mx-auto"><br>	
+
+
+    					<!--  YOUR CODE START HERE-->
+    					<!--  Follow comments further down for all 5 dropdowns -->
+
+    					<!-- 
+    						 1. create drop-down for "Day_of_Week" feature
+						-->
+
+						<label for="day_of_week">Day of Week</label><p><small>Select digit 1-7 corresponding to Mon-Sun</small></p>
+
+						<select name="day_of_week" class="dropdown">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+						</select><br><br>
+
+
+						<!-- 
+    						 2. create drop-down for "Open" feature
+						-->
+
+						<label for="open">Open</label><p><small>1 = Open | 0 = Closed</small></p>
+
+						<select name="open" class="dropdown">
+							<option>0</option>
+							<option>1</option>
+						</select><br><br>								
+
+
+						<!-- 
+    						 3. create drop-down for "Promo" feature
+						-->
+
+						<label for="promo">Promo</label><p><small>Store running a promo?<br>1 = Yes | 0 = No</small></p>
+
+						<select name="promo" class="dropdown">
+							<option>0</option>
+							<option>1</option>
+						</select><br><br>
+
+
+						<!-- Promo2 --> 
+
+					    <label for="promo2">Promo2</label><p><small>Store participating in a recurring promotion?<br>1 = Yes | 0 = No</small></p>
+
+						<select name="promo2" class="dropdown">
+							<option>0</option>
+							<option>1</option>
+						</select><br><br>
+
+
+						</div>
+
+
+						<div class="col-lg-3 mx-auto"><br>	
+
+						<!-- Store Type - NOTE: will need to map a-d to 1-4 --> 
+
+					    <label for="store_type">Store Type</label><br>
+
+						<select name="store_type" class="dropdown">
+							<option>a</option>
+							<option>b</option>
+							<option>c</option>
+							<option>d</option>
+						</select><br><br>
+
+
+						<!-- Assortment - NOTE: will need to map a-d to 1-3 --> 
+
+					    <label for="assortment">Assortment</label><p><small>What is the level of products available?<br>a = basic | b = extra | c = extended</small></p>
+
+						<select name="assortment" class="dropdown">
+							<option>a</option>
+							<option>b</option>
+							<option>c</option>
+						</select><br><br>
+
+
+						<!-- 
+    						 4. create drop-down for "State Holiday" feature
+						-->
+
+						<label for="state_holiday">State Holiday</label><p><small>0 = None | 1 = public holiday | 2 = Easter holiday | 3 = Christmas</small></p>
+
+						<select name="state_holiday" class="dropdown">
+							<option>0</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+						</select><br><br>
+
+						<!-- 
+    						 5. create drop-down for "School Holiday" feature
+						-->    
+
+					    <label for="school_holiday">School Holiday</label><p><small>Stored affected by public school closure?<br>1 = Yes | 0 = No</small></p>
+
+						<select name="school_holiday" class="dropdown">
+							<option>0</option>
+							<option>1</option>
+						</select><br><br>
+
+
+<!--  END OF PART 2.2 -->
+
+					    <div class="input-group">
+							  <div class="input-group-prepend">
+							    <span class="input-group-text">Store #</span>
+							  </div>
+							  <input type="text" name="store" value = "1" class="form-control" aria-label="With textarea">
+						</div>
+					</div>	      
+				</div>
+  			</div>
+    			</div>
+    		</form>
+    	</div>
+    </div>
+</section>		
+
+{% endblock %}
