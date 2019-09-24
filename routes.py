@@ -24,15 +24,12 @@ def make_prediction():
 
 		day_of_week = request.form['day_of_week']
 		store_open = request.form['open']
+		store_type = request.form['store_type']
+		assortment = request.form['assortment']
 		promo = request.form['promo']
 		state_holiday = request.form['state_holiday']
 		school_holiday = request.form['school_holiday']
 		promo2 = request.form['promo2']
-		
-		# convert a,b,c,d to 1,2,3,4 for store_type and assortment
-
-		store_type = ord(request.form['store_type']) - 96
-		assortment = ord(request.form['assortment']) - 96
 
 
 		# --- THE END OF CODE FOR Part 2.2.3 --- 
@@ -77,9 +74,18 @@ def make_prediction():
 
 		# ---YOUR CODE FOR Part 2.2.4 ---- 
 		
-		# Predict from the model
+		# Load model and predict
 
-		model = joblib.load('rm.pkl')
+		# model = joblib.load('rf.pkl')
+
+
+		# --- EXTRA CREDIT: model selection ---
+
+		if request.form['model_selection'] == 1: 
+			model = joblib.load('rf.pkl')
+		else:
+			model = joblib.load('rf2.pkl')
+
 
 		prediction = model.predict(np.array(entered_li).reshape(1, -1))
 
@@ -96,12 +102,8 @@ if __name__ == '__main__':
 
 	# ---YOUR CODE FOR Part 2.2.1 ----  
 	
-	#Load ML model
-
+	# Load ML model
 	# model = joblib.load('rm.pkl')
-
-
-
 
 	# --- THE END OF CODE FOR Part 2.2.1 --- 
 

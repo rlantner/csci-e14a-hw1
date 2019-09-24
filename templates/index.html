@@ -15,6 +15,17 @@
 
     				 		<p> Rossmann operates over 3,000 drug stores in 7 European countries. Currently, Rossmann store managers are tasked with predicting their daily sales for up to six weeks in advance. Store sales are influenced by many factors, including promotions, competition, school and state holidays, seasonality, and locality. With thousands of individual managers predicting sales based on their unique circumstances, the accuracy of results can be quite varied.</p>
 
+    				 		<!-- select model -->
+
+    				 		<label for="model_selection">Select model to run:</label><br>
+
+    				 		<select name="model_selection" class="dropdown">
+    				 			<option value="1">Random Forest 1</option>
+    				 			<option value="2">Random Forest 2</option>
+    				 			<!--  <option value="3">XGBoost</option>  -->
+    				 		</select><br><br>	
+
+
     				 		<h1>
 							  {% if label %} {{ label }} {% endif %}
 							</h1>
@@ -41,16 +52,16 @@
     						 1. create drop-down for "Day_of_Week" feature
 						-->
 
-						<label for="day_of_week">Day of Week</label><p><small>Select digit 1-7 corresponding to Mon-Sun</small></p>
+						<label for="day_of_week">Day of Week</label><br>
 
 						<select name="day_of_week" class="dropdown">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-							<option>6</option>
-							<option>7</option>
+							<option value="1">Monday</option>
+							<option value="2">Tuesday</option>
+							<option value="3">Wednesday</option>
+							<option value="4">Thursday</option>
+							<option value="5">Friday</option>
+							<option value="6">Saturday</option>
+							<option value="7">Sunday</option>
 						</select><br><br>
 
 
@@ -58,11 +69,11 @@
     						 2. create drop-down for "Open" feature
 						-->
 
-						<label for="open">Open</label><p><small>1 = Open | 0 = Closed</small></p>
+						<label for="open">Store open?</label><br>
 
 						<select name="open" class="dropdown">
-							<option>0</option>
-							<option>1</option>
+							<option value="1">Yes</option>
+							<option value="0">No</option>
 						</select><br><br>								
 
 
@@ -70,21 +81,21 @@
     						 3. create drop-down for "Promo" feature
 						-->
 
-						<label for="promo">Promo</label><p><small>Store running a promo?<br>1 = Yes | 0 = No</small></p>
+						<label for="promo">Store running a promotion?</label><br>
 
 						<select name="promo" class="dropdown">
-							<option>0</option>
-							<option>1</option>
+							<option value="1">Yes</option>
+							<option value="0">No</option>
 						</select><br><br>
 
 
 						<!-- Promo2 --> 
 
-					    <label for="promo2">Promo2</label><p><small>Store participating in a recurring promotion?<br>1 = Yes | 0 = No</small></p>
+					    <label for="promo2">Store running a recurring promotion?</label><br>
 
 						<select name="promo2" class="dropdown">
-							<option>0</option>
-							<option>1</option>
+							<option value="1">Yes</option>
+							<option value="0">No</option>
 						</select><br><br>
 
 
@@ -93,26 +104,25 @@
 
 						<div class="col-lg-3 mx-auto"><br>	
 
-						<!-- Store Type - NOTE: will need to map a-d to 1-4 --> 
+						<!-- Store Type - map a-d to 1-4 --> 
 
 					    <label for="store_type">Store Type</label><br>
 
 						<select name="store_type" class="dropdown">
-							<option>a</option>
-							<option>b</option>
-							<option>c</option>
-							<option>d</option>
+							<option value="1">A</option>
+							<option value="2">B</option>							<option value="3">C</option>
+							<option value="4">D</option>
 						</select><br><br>
 
 
-						<!-- Assortment - NOTE: will need to map a-d to 1-3 --> 
+						<!-- Assortment - map a-c to 1-3 --> 
 
-					    <label for="assortment">Assortment</label><p><small>What is the level of products available?<br>a = basic | b = extra | c = extended</small></p>
+					    <label for="assortment">Assortment</label><br>
 
 						<select name="assortment" class="dropdown">
-							<option>a</option>
-							<option>b</option>
-							<option>c</option>
+							<option value="1">A - Basic</option>
+							<option value="2">B - Extra</option>
+							<option value="3">C - Extended</option>
 						</select><br><br>
 
 
@@ -120,24 +130,24 @@
     						 4. create drop-down for "State Holiday" feature
 						-->
 
-						<label for="state_holiday">State Holiday</label><p><small>0 = None | 1 = public holiday | 2 = Easter holiday | 3 = Christmas</small></p>
+						<label for="state_holiday">State holiday?</label><br>
 
 						<select name="state_holiday" class="dropdown">
-							<option>0</option>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
+							<option value="0">None</option>
+							<option value="1">Public holiday</option>
+							<option value="2">Easter</option>
+							<option value="3">Christmas</option>
 						</select><br><br>
 
 						<!-- 
     						 5. create drop-down for "School Holiday" feature
 						-->    
 
-					    <label for="school_holiday">School Holiday</label><p><small>Stored affected by public school closure?<br>1 = Yes | 0 = No</small></p>
+					    <label for="school_holiday">School holiday?</label><br>
 
 						<select name="school_holiday" class="dropdown">
-							<option>0</option>
-							<option>1</option>
+							<option value="1">Yes</option>
+							<option value="0">No</option>
 						</select><br><br>
 
 
